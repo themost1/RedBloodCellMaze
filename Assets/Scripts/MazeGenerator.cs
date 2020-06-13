@@ -7,6 +7,8 @@ public class MazeGenerator : MonoBehaviour
     public GameObject wallBlock;
     public List<List<int>> maze = new List<List<int>>();
     public int mazeSize = 20;
+    public List<int> pivotsX = new List<int>();
+    public List<int> pivotsY = new List<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -57,38 +59,86 @@ public class MazeGenerator : MonoBehaviour
         int dir = Random.Range(0, 2);
         int loc = 0;
         int remove = 0;
+        int iterations = 0;
         if (dir == 0)
         {
             loc = Random.Range(x1 + 1, x2);
+            while (loc == xPivot && iterations < 100)
+            {
+                loc = Random.Range(x1 + 1, x2);
+                iterations++;
+            }
+
+            if (iterations >= 100) return;
+
             remove = Random.Range(y1, y2 + 1);
 
             for (int i = y1; i <= y2; ++i)
             {
                 if (i != remove)
                 {
-                    maze[i][loc] = 1;
+                    if (!adjacentToPivot(loc, i))
+                    {
+                        maze[i][loc] = 1;
+                    }
+                  
                 }
             }
 
-            divideMaze(x1, y1, loc - 1, y2, -1, -1);
-            divideMaze(loc + 1, y1, x2, y2, -1, -1);
+            pivotsX.Add(loc);
+            pivotsY.Add(remove);
+
+            divideMaze(x1, y1, loc - 1, y2,loc, remove);
+            divideMaze(loc + 1, y1, x2, y2, loc, remove);
+
+           
         }
         else
         {
             loc = Random.Range(y1 + 1, y2);
+            while (loc == yPivot && iterations < 100)
+            {
+                loc = Random.Range(y1 + 1, y2);
+                iterations++;
+            }
+
+            if (iterations >= 100) return;
             remove = Random.Range(x1, x2 + 1);
 
             for (int i = x1; i <= x2; ++i)
             {
                 if (i != remove)
                 {
-                    maze[loc][i] = 1;
+                    if (!adjacentToPivot(i, loc))
+                    {
+                        maze[loc][i] = 1;
+
+                    }
                 }
             }
 
-            divideMaze(x1, y1, x2, loc - 1, -1, -1);
-            divideMaze(x1, loc + 1, x2, y2, -1, -1);
+            divideMaze(x1, y1, x2, loc - 1, remove, loc);
+            divideMaze(x1, loc + 1, x2, y2, remove, loc);
+
+            pivotsX.Add(remove);
+            pivotsY.Add(loc);
         }
+    }
+
+    bool adjacentToPivot(int x, int y)
+    {
+        for (int i = 0; i < pivotsX.Count; ++i)
+        {
+            if (pivotsX[i] == x && Mathf.Abs(pivotsY[i] - y) <= 1) {
+                return true;
+            }
+            if (Mathf.Abs(pivotsX[i] - x) <= 1 && pivotsY[i] == y)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // Update is called once per frame
