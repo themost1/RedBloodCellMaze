@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -18,8 +19,16 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-    	float horizontalInput = Input.GetAxis("Horizontal");
-    	float verticalInput = Input.GetAxis("Vertical");
-    	transform.position += speed * Time.deltaTime * new Vector3(horizontalInput, verticalInput, 0f);
+    	float xDir = Input.GetAxis("Horizontal");
+    	float yDir = Input.GetAxis("Vertical");
+    	transform.position += speed * Time.deltaTime * new Vector3(xDir, yDir, 0f);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("uh oh...");
+        }
     }
 }
