@@ -5,11 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
+    public int hp = 3;
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        points = 0;
+        SetPointsText ();
+        WinText.text = "";
+        StatusAlive = 1;
     }
 
     // Update is called once per frame
@@ -30,8 +35,26 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            StatusAlive = 0;
             Debug.Log("uh oh...");
         }
+        if (collision.gameObject.CompareTag("Prize"))
+        {
+            points = points + 1;
+            Debug.Log("points +1");
+        }
+    }
+
+    void SetPointsText()
+    {
+        SetPointsText.text = "Points: " + points.ToString ();
+        if (StatusAlive == 0){
+            WinText.text = "You died";
+        }
+        if (points >= 10){
+            WinText.text = "You won";
+        }
+
     }
 
 }

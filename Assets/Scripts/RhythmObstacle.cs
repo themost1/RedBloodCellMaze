@@ -20,20 +20,13 @@ public class RhythmObstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeAlive += Time.deltaTime;
-        print(timeAlive);
-        if (timeAlive > timeCutoff)
-        {
-            toggleState();
-        }
+  
     }
 
-    void toggleState()
+    public void toggleState()
     {
-        timeAlive = 0;
-        heartbeat.Stop();
-        heartbeat.Play(0);
-
+ 
+            
         if (state == "safe")
         {
             state = "deadly";
