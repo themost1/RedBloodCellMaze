@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private int points;
     private int StatusAlive;
+    private bool facingRight;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         SetPointsText ();
         WinText.text = "";
         StatusAlive = 1;
+        facingRight = false;
     }
 
     // Update is called once per frame
@@ -32,7 +34,11 @@ public class PlayerController : MonoBehaviour
     	float xDir = Input.GetAxis("Horizontal");
     	float yDir = Input.GetAxis("Vertical");
     	transform.position += speed * Time.deltaTime * new Vector3(xDir, yDir, 0f);
-        Debug.Log(xDir + " " + yDir + " " + transform.position);
+        Debug.Log("transforms: xDir " + yDir + " " + transform.position);
+
+        bool flip = (facingRight && xDir < 0) || (!facingRight && xDir >= 0);
+        facingRight = xDir >= 0;
+        transform.Rotate(0f, flip ? 180f : 0f, 0f);
     }
 
     void OnCollisionEnter(Collision collision)

@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = speed * transform.forward; //transform.forward?
+        rb.velocity = speed * transform.right; //transform.forward?
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
