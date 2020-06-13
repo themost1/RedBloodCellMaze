@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
     public int hp = 3;
-    public int score = 0;
+    public TextMeshProUGUI WinText;
+
+    private int points;
+    private int StatusAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     void SetPointsText()
     {
-        SetPointsText.text = "Points: " + points.ToString ();
+        // SetPointsText.text = "Points: " + points.ToString ();
         if (StatusAlive == 0){
             WinText.text = "You died";
         }
