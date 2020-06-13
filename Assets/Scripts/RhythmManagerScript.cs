@@ -28,7 +28,7 @@ public class RhythmManagerScript : MonoBehaviour
     {
         print("Toggling");
         timeAlive = 0;
-        heartbeat.Stop();
+        // heartbeat.Stop();
         heartbeat.Play(0);
         GameObject[] go = GameObject.FindGameObjectsWithTag("RhythmObstacle");
         for (int i = 0; i < go.Length; ++i)
