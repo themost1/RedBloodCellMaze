@@ -5,6 +5,7 @@ using UnityEngine;
 public class MazeGenerator : MonoBehaviour
 {
     public GameObject wallBlock;
+    public GameObject rhythmObstacle;
     public List<List<int>> maze = new List<List<int>>();
     public int mazeSize = 20;
     public List<int> pivotsX = new List<int>();
@@ -36,6 +37,10 @@ public class MazeGenerator : MonoBehaviour
                 {
                     Instantiate(wallBlock, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
 
+                }
+                else if ((i & j) % 3 == 1)
+                {
+                    Instantiate(rhythmObstacle, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 }
             }
         }

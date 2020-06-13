@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallBlock: {fileID: 4944639973482333971, guid: b685cc825ed21d64e86aa70b93dac5f6,
     type: 3}
+  rhythmObstacle: {fileID: 6185146650148362398, guid: f6c63351711e4a54381ed144f437c363,
+    type: 3}
   mazeSize: 20
   pivotsX: 
   pivotsY: 
