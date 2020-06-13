@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
+    public int hp = 3;
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
