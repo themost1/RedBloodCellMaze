@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     	float xDir = Input.GetAxis("Horizontal");
     	float yDir = Input.GetAxis("Vertical");
     	transform.position += speed * Time.deltaTime * new Vector3(xDir, yDir, 0f);
+        Debug.Log(xDir + " " + yDir + " " + transform.position);
+    	transform.Rotate(yDir * 180, xDir * 180, 0f); 
     }
 
     void OnCollisionEnter(Collision collision)
@@ -31,4 +33,5 @@ public class PlayerController : MonoBehaviour
             Debug.Log("uh oh...");
         }
     }
+
 }
