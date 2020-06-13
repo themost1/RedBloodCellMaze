@@ -17,7 +17,7 @@ public class GotoMazeScene : MonoBehaviour
         
     }
 
-    void goToMazeScene()
+    public void goToMazeScene()
     {
         SceneManager.LoadScene("MazeScene");
     }
