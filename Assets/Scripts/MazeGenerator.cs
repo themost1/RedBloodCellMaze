@@ -79,9 +79,9 @@ public class MazeGenerator : MonoBehaviour
                 {
                     if (Random.Range(0, 5) == 1)
                         Instantiate(enemy, new Vector3(size.x * j + size.x / 2, size.y * i + size.y / 2, -1), Quaternion.identity);
-                    else if (Random.Range(0, 40) == 1)
+                    else if (Random.Range(0, 40 + PlayerController.score * 3) == 1)
                         Instantiate(heartPickup, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
-                    else if (Random.Range(0, 80) == 1)
+                    else if (Random.Range(0, 80 + PlayerController.score * 3) == 1)
                         Instantiate(shieldPickup, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 }
 
