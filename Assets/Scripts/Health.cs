@@ -18,11 +18,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        int hp = 0;
-        for (int i = 0; i < players.Length; ++i)
-        {
-            hp = players[i].GetComponent<PlayerController>().hp;
-        }
+        int hp = PlayerController.hp;
         if (hp > whichHeart)
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();

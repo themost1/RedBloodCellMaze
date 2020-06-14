@@ -34,7 +34,7 @@ public class Trapdoor : MonoBehaviour
                 else
                 {
                     state = "safe";
-                    deadlyCounter = 0.5;
+                    deadlyCounter = 0.8;
                     becomingDeadly = false;
                 }
             }

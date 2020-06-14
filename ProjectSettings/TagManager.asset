@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - HeartPickup
   - ShieldPickup
+  - MazeEnd
   layers:
   - Default
   - TransparentFX
