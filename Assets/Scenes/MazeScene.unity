@@ -230,6 +230,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 7806178449354195859, guid: e2a281a0b4ddf3f428623eb2643de57e,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 6106025905563429643, guid: 9c73a155d0f0f4192930ce6499975125,
+        type: 3}
     - target: {fileID: 7806178449354195868, guid: e2a281a0b4ddf3f428623eb2643de57e,
         type: 3}
       propertyPath: m_LocalPosition.x

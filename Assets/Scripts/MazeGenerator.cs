@@ -10,6 +10,7 @@ public class MazeGenerator : MonoBehaviour
     public int mazeSize = 20;
     public List<int> pivotsX = new List<int>();
     public List<int> pivotsY = new List<int>();
+    public GameObject enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,10 @@ public class MazeGenerator : MonoBehaviour
                 else if ((i & j) % 3 == 1)
                 {
                     Instantiate(rhythmObstacle, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                } else
+                {
+                    if (Random.Range(0, 5) == 1)
+                        Instantiate(enemy, new Vector3(size.x * j + size.x/2, size.y * i + size.y/2, 0), Quaternion.identity);
                 }
             }
         }

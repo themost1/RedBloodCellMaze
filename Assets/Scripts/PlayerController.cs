@@ -31,9 +31,18 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-    	float xDir = Input.GetAxis("Horizontal");
-    	float yDir = Input.GetAxis("Vertical");
-    	transform.position += speed * Time.deltaTime * new Vector3(xDir, yDir, 0f);
+        //float xDir = Input.GetAxis("Horizontal");
+        // float yDir = Input.GetAxis("Vertical");
+        float xDir = 0, yDir = 0;
+        if (Input.GetKey(KeyCode.A))
+            xDir = -1;
+        if (Input.GetKey(KeyCode.D))
+            xDir = 1;
+        if (Input.GetKey(KeyCode.W))
+            yDir = 1;
+        if (Input.GetKey(KeyCode.S))
+            yDir = -1;
+        transform.position += speed * Time.deltaTime * new Vector3(xDir, yDir, 0f);
         // Debug.Log("transforms: xDir " + yDir + " " + transform.position);
 
         bool flip = (facingRight && xDir < 0) || (!facingRight && xDir >= 0);
