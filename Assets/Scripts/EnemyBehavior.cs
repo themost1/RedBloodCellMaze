@@ -35,14 +35,18 @@ public class EnemyBehavior : MonoBehaviour
         oldy = transform.position.y;
 
     	transform.position += speed * Time.deltaTime * new Vector3(dirs[curr][0], dirs[curr][1], 0f);
+
+        int changeDir = Random.Range(0, (int)(1000 * Time.deltaTime));
+        if (changeDir == 1)
+        {
+            curr = (curr + 1) % dirs.Length;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D  collision)
     {
-        print("collided");
         if (collision.gameObject.CompareTag("Wall"))
         {
-            print("is a wall");
             curr = (curr + 1) % dirs.Length;
         }
     }

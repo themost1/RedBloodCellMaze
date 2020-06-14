@@ -11,6 +11,8 @@ public class MazeGenerator : MonoBehaviour
     public List<int> pivotsX = new List<int>();
     public List<int> pivotsY = new List<int>();
     public GameObject enemy;
+    public GameObject background;
+    public GameObject trapdoor;
 
     // Start is called before the first frame update
     void Start()
@@ -46,12 +48,14 @@ public class MazeGenerator : MonoBehaviour
                 }
                 else if ((i & j) % 3 == 1)
                 {
-                    Instantiate(rhythmObstacle, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                    Instantiate(trapdoor, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 } else
                 {
                     if (Random.Range(0, 5) == 1)
-                        Instantiate(enemy, new Vector3(size.x * j + size.x/2, size.y * i + size.y/2, 0), Quaternion.identity);
+                        Instantiate(enemy, new Vector3(size.x * j + size.x/2, size.y * i + size.y/2, -1), Quaternion.identity);
                 }
+
+                Instantiate(background, new Vector3(size.x * j, size.y * i, 10), Quaternion.identity);
             }
         }
         for (int i = -1; i <= mazeSize; ++i)
@@ -86,7 +90,6 @@ public class MazeGenerator : MonoBehaviour
         {
             maze[yloc-1][xloc] = 0;
         }
-        print("cleared a pivot");
     }
 
     // x1, y1 and x2, y2 are top-right and bottom-left corners of open space to divide
@@ -96,7 +99,6 @@ public class MazeGenerator : MonoBehaviour
         {
             return;
         }
-        print(x1 + " " + y1 + " " + x2 + " " + y2);
         int dir = Random.Range(0, 2);
         int loc = 0;
         int remove = 0;

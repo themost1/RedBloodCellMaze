@@ -15,12 +15,13 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-    	if (collider.gameObject.CompareTag("Obstacle"))
+    	if (collider.gameObject.CompareTag("Enemy"))
     	{
             Destroy(gameObject);
-    
-            Debug.Log("shot " + collider.name);
-    		Destroy(collider);
-    	}
+        	Destroy(collider.gameObject);
+    	} else if (collider.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

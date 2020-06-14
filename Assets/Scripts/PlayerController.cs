@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -64,6 +65,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            takeDamage();
+        }
+    }
+
     void SetPointsText()
     {
         // SetPointsText.text = "Points: " + points.ToString ();
@@ -74,6 +83,11 @@ public class PlayerController : MonoBehaviour
             WinText.text = "You won";
         }
 
+    }
+
+    public void takeDamage()
+    {
+        SceneManager.LoadScene("RestartScene");
     }
 
 }
