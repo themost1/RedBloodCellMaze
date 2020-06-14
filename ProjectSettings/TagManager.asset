@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - HeartPickup
   - ShieldPickup
+  - TargetPickup
   layers:
   - Default
   - TransparentFX
