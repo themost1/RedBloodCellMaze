@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI WinText;
 
     private int points;
-    private int StatusAlive;
+//    private int StatusAlive;
     private bool facingRight;
 
     public float invFrames = 1.2f;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            StatusAlive = 0;
+//            StatusAlive = 0;
             Debug.Log("uh oh...");
         }
         else if (collision.gameObject.CompareTag("Prize"))
