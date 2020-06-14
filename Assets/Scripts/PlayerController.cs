@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private int StatusAlive;
     private bool facingRight;
 
+    public float invFrames = 0.3f;
+    public float hpTime = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hpTime > 0)
+        {
+            hpTime -= Time.deltaTime;
+        } else
+        {
+            hpTime = 0;
+        }
     }
 
     void FixedUpdate() {
@@ -87,7 +96,12 @@ public class PlayerController : MonoBehaviour
 
     public void takeDamage()
     {
-        SceneManager.LoadScene("RestartScene");
+        if (hpTime > 0) return;
+    
+        hp--;
+        hpTime = invFrames;
+        if (hp <= 0)
+            SceneManager.LoadScene("RestartScene");
     }
 
 }
