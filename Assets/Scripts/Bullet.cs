@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	public float speed = 5;
+	public float speed = 10;
+    public Vector3 dir = Vector3.right;
 	public Rigidbody2D rb;
     public GameObject impactEffect;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = speed * transform.right; //transform.forward?
+        rb.velocity = speed * dir; //transform.forward?
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-    	Destroy(gameObject);
-        Instantiate(impactEffect, transform.position, transform.rotation);
-    	if (collider.gameObject.CompareTag("Obstacle"))
+        // Instantiate(impactEffect, transform.position, transform.rotation);
+
+    	if (collider.gameObject.CompareTag("Enemy"))
     	{
-            Debug.Log("shot " + collider.name);
-    		Destroy(collider);
-    	}
+            Destroy(gameObject);
+        	Destroy(collider.gameObject);
+    	} else if (collider.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

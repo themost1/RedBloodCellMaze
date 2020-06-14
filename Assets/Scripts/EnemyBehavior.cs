@@ -12,6 +12,7 @@ public class EnemyBehavior : MonoBehaviour
     };
     private int curr = 0;
     public int speed = 20;
+    public float oldx = 0, oldy = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +27,23 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if (transform.position.x == oldx && transform.position.y == oldy)
+        {
+            curr = (curr + 1) % dirs.Length;
+        }
+        oldx = transform.position.x;
+        oldy = transform.position.y;
+
     	transform.position += speed * Time.deltaTime * new Vector3(dirs[curr][0], dirs[curr][1], 0f);
+
+        int changeDir = Random.Range(0, (int)(1000 * Time.deltaTime));
+        if (changeDir == 1)
+        {
+            curr = (curr + 1) % dirs.Length;
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D  collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {

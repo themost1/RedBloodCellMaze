@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MazeScene.unity
     guid: 8c6dedfa50b89384dbf7309fdaa86cd2
+  - enabled: 1
+    path: Assets/Scenes/RestartScene.unity
+    guid: 9e90cf7f3d673914ca7d55047a7e79ec
   m_configObjects: {}

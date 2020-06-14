@@ -26,7 +26,6 @@ public class RhythmManagerScript : MonoBehaviour
 
     void toggleState()
     {
-        print("Toggling");
         timeAlive = 0;
         // heartbeat.Stop();
         heartbeat.Play(0);

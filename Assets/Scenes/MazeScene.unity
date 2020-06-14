@@ -230,6 +230,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 7806178449354195859, guid: e2a281a0b4ddf3f428623eb2643de57e,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 6106025905563429643, guid: 9c73a155d0f0f4192930ce6499975125,
+        type: 3}
+    - target: {fileID: 7806178449354195859, guid: e2a281a0b4ddf3f428623eb2643de57e,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 4878998563904155548, guid: 072cdbae211655943977ed76cc3aba87,
+        type: 3}
+    - target: {fileID: 7806178449354195859, guid: e2a281a0b4ddf3f428623eb2643de57e,
+        type: 3}
+      propertyPath: trapdoor
+      value: 
+      objectReference: {fileID: 9185284266605019948, guid: ebfdef4826f08554a9723e3cc8211da2,
+        type: 3}
     - target: {fileID: 7806178449354195868, guid: e2a281a0b4ddf3f428623eb2643de57e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -502,6 +520,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747987263118290271, guid: 26a30d96b6fb0408080ce4b9a46c3262,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447889916727472042, guid: 26a30d96b6fb0408080ce4b9a46c3262,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894477635339422888, guid: 26a30d96b6fb0408080ce4b9a46c3262,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26a30d96b6fb0408080ce4b9a46c3262, type: 3}

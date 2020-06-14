@@ -10,6 +10,9 @@ public class MazeGenerator : MonoBehaviour
     public int mazeSize = 20;
     public List<int> pivotsX = new List<int>();
     public List<int> pivotsY = new List<int>();
+    public GameObject enemy;
+    public GameObject background;
+    public GameObject trapdoor;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,11 @@ public class MazeGenerator : MonoBehaviour
 
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
 
+        for (int i = 0; i < pivotsX.Count; ++i)
+        {
+            clearPivot(pivotsX[i], pivotsY[i]);
+        }
+
         for (int i = 0; i < mazeSize; ++i)
         {
             for (int j = 0; j < mazeSize; ++j)
@@ -40,8 +48,14 @@ public class MazeGenerator : MonoBehaviour
                 }
                 else if ((i & j) % 3 == 1)
                 {
-                    Instantiate(rhythmObstacle, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                    Instantiate(trapdoor, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                } else
+                {
+                    if (Random.Range(0, 5) == 1)
+                        Instantiate(enemy, new Vector3(size.x * j + size.x/2, size.y * i + size.y/2, -1), Quaternion.identity);
                 }
+
+                Instantiate(background, new Vector3(size.x * j, size.y * i, 10), Quaternion.identity);
             }
         }
         for (int i = -1; i <= mazeSize; ++i)
@@ -53,6 +67,31 @@ public class MazeGenerator : MonoBehaviour
         }
     }
 
+    void clearPivot(int xloc, int yloc)
+    {
+        if (yloc < 1 || yloc > mazeSize - 2 || xloc < 1 || xloc > mazeSize - 2)
+        {
+            print("issue: " + xloc + " " + yloc);
+            return;
+        }
+        if (maze[yloc][xloc-1] == 0)
+        {
+            maze[yloc][xloc + 1] = 0;
+        }
+        if (maze[yloc][xloc + 1] == 0)
+        {
+            maze[yloc][xloc - 1] = 0;
+        }
+        if (maze[yloc-1][xloc] == 0)
+        {
+            maze[yloc+1][xloc] = 0;
+        }
+        if (maze[yloc+1][xloc] == 0)
+        {
+            maze[yloc-1][xloc] = 0;
+        }
+    }
+
     // x1, y1 and x2, y2 are top-right and bottom-left corners of open space to divide
     void divideMaze(int x1, int y1, int x2, int y2, int xPivot, int yPivot)
     {
@@ -60,7 +99,6 @@ public class MazeGenerator : MonoBehaviour
         {
             return;
         }
-        print(x1 + " " + y1 + " " + x2 + " " + y2);
         int dir = Random.Range(0, 2);
         int loc = 0;
         int remove = 0;
@@ -149,6 +187,6 @@ public class MazeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(Time.deltaTime);
+        
     }
 }
