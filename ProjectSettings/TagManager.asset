@@ -9,6 +9,7 @@ TagManager:
   - RhythmObstacle
   - Enemy
   - HeartPickup
+  - ShieldPickup
   layers:
   - Default
   - TransparentFX
