@@ -13,7 +13,7 @@ public class MazeGenerator : MonoBehaviour
     public GameObject enemy;
     public GameObject background;
     public GameObject trapdoor;
-    // public GameObject valve;
+    public GameObject valve;
     public GameObject heartPickup;
     public GameObject shieldPickup;
 
@@ -53,10 +53,11 @@ public class MazeGenerator : MonoBehaviour
                 {
                     Instantiate(trapdoor, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 } 
-                // else if ((i - 1 >= 0 && i + 1 < mazeSize - 1) || (j - 1 >= 0 && j + 1 < mazeSize - 1) 
-                // {
-                //     Instantiate(valve, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
-                // }
+                else if (IsHorizontalValve(i, j, mazeSize)) 
+                {
+                    Debug.Log(i + " " + j);
+                    Instantiate(valve, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                }
                 else
                 {
                     if (Random.Range(0, 5) == 1)
@@ -201,4 +202,37 @@ public class MazeGenerator : MonoBehaviour
     {
         
     }
+
+    bool IsHorizontalValve(int i, int j, int mazeSize) {
+        if (i == 0 || i == mazeSize - 1 || j == 0 || j == mazeSize - 1)
+        {
+            return false;
+        }
+
+        bool rand = Random.Range(0, 5) == 1;
+        return rand && (maze[i-1][j] == 1 && maze[i+1][j] == 1 && maze[i][j-1] == 0 && maze[i][j+1] == 0);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
