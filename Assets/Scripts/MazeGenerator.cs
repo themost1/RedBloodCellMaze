@@ -44,7 +44,7 @@ public class MazeGenerator : MonoBehaviour
         {
             int row = Random.Range(0, mazeSize);
             int col = Random.Range(0, mazeSize);
-            if (maze[row][col] == 0)
+            if ((maze[row][col] == 0) && ((row >= (mazeSize/2)) || (col >= (mazeSize/2))))
             {
                 maze[row][col] = 2;
                 endAdded = true;
