@@ -19,6 +19,8 @@ public class GotoMazeScene : MonoBehaviour
 
     public void goToMazeScene()
     {
+        PlayerController.hp = 3;
+        PlayerController.shieldsLeft = 0;
         SceneManager.LoadScene("MazeScene");
     }
 }

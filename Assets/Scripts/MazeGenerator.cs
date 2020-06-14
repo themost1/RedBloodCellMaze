@@ -15,6 +15,7 @@ public class MazeGenerator : MonoBehaviour
     public GameObject trapdoor;
     public GameObject heartPickup;
     public GameObject shieldPickup;
+    public GameObject mazeEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,19 @@ public class MazeGenerator : MonoBehaviour
 
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
 
+        bool endAdded = false;
+        while (!endAdded)
+        {
+            int row = Random.Range(0, mazeSize);
+            int col = Random.Range(0, mazeSize);
+            if (maze[row][col] == 0)
+            {
+                maze[row][col] = 2;
+                endAdded = true;
+                break;
+            }
+        }
+
         for (int i = 0; i < pivotsX.Count; ++i)
         {
             clearPivot(pivotsX[i], pivotsY[i]);
@@ -43,7 +57,11 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int j = 0; j < mazeSize; ++j)
             {
-                if (maze[i][j] == 1)
+                if (maze[i][j] == 2)
+                {
+                    Instantiate(mazeEnd, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                }
+                else if (maze[i][j] == 1)
                 {
                     Instantiate(wallBlock, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
 

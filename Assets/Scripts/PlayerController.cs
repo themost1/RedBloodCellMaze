@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
-    public int hp = 3;
+    public static int hp = 3;
     private TextMeshProUGUI WinText;
 
     private int points;
@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
     public float shieldTime = 0;
 
     public string color = "red";
-    public int shieldsLeft = 0;
+    public static int shieldsLeft = 0;
+    public static int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -118,6 +119,14 @@ public class PlayerController : MonoBehaviour
             if (shieldsLeft < 3) shieldsLeft++;
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.CompareTag("MazeEnd"))
+        {
+            score++;
+            SceneManager.LoadScene("MazeScene");
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        }
+        
     }
 
     // void SetPointsText()
