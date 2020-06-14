@@ -21,7 +21,9 @@ public class MazeGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         for (int i = 0; i < mazeSize; ++i)
+        mazeSize = 20 + PlayerController.score * 5;
+
+        for (int i = 0; i < mazeSize; ++i)
         {
             List<int> empty = new List<int>();
             for (int j = 0; j < mazeSize; ++j)
@@ -33,6 +35,7 @@ public class MazeGenerator : MonoBehaviour
         }
 
         Vector3 size = wallBlock.GetComponent<BoxCollider2D>().size;
+
 
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
 
