@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
     public int hp = 3;
-    public TextMeshProUGUI WinText;
+    private TextMeshProUGUI WinText;
 
     private int points;
     private int StatusAlive;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         points = 0;
-        SetPointsText ();
+        // SetPointsText ();
         WinText.text = "";
         StatusAlive = 1;
         facingRight = false;
@@ -41,8 +41,6 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        //float xDir = Input.GetAxis("Horizontal");
-        // float yDir = Input.GetAxis("Vertical");
         float xDir = 0, yDir = 0;
         if (Input.GetKey(KeyCode.A))
             xDir = -1;
@@ -69,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Prize"))
         {
-            points = points + 1;
+            points += 1;
             Debug.Log("points +1");
         }
     }
@@ -82,17 +80,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SetPointsText()
-    {
-        // SetPointsText.text = "Points: " + points.ToString ();
-        if (StatusAlive == 0){
-            WinText.text = "You died";
-        }
-        if (points >= 10){
-            WinText.text = "You won";
-        }
+    // void SetPointsText()
+    // {
+    //     // SetPointsText.text = "Points: " + points.ToString ();
+    //     if (StatusAlive == 0){
+    //         WinText.text = "You died";
+    //     }
+    //     if (points >= 10){
+    //         WinText.text = "You won";
+    //     }
 
-    }
+    // }
 
     public void takeDamage()
     {
