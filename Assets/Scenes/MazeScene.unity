@@ -371,6 +371,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6736221454413650228, guid: dbbddbf9abce27f46a859bf6b654dccd,
         type: 3}
+    - target: {fileID: 7806178449354195859, guid: e2a281a0b4ddf3f428623eb2643de57e,
+        type: 3}
+      propertyPath: valve
+      value: 
+      objectReference: {fileID: 1505183196223781791, guid: b1c21bfcdd32e437ba592087e5d05729,
+        type: 3}
     - target: {fileID: 7806178449354195868, guid: e2a281a0b4ddf3f428623eb2643de57e,
         type: 3}
       propertyPath: m_LocalPosition.x
