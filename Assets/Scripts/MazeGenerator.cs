@@ -13,6 +13,7 @@ public class MazeGenerator : MonoBehaviour
     public GameObject enemy;
     public GameObject background;
     public GameObject trapdoor;
+    // public GameObject valve;
     public GameObject heartPickup;
     public GameObject shieldPickup;
     public GameObject mazeEnd;
@@ -69,7 +70,12 @@ public class MazeGenerator : MonoBehaviour
                 else if ((i & j) % 3 == 1)
                 {
                     Instantiate(trapdoor, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
-                } else
+                } 
+                // else if ((i - 1 >= 0 && i + 1 < mazeSize - 1) || (j - 1 >= 0 && j + 1 < mazeSize - 1) 
+                // {
+                //     Instantiate(valve, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                // }
+                else
                 {
                     if (Random.Range(0, 5) == 1)
                         Instantiate(enemy, new Vector3(size.x * j + size.x / 2, size.y * i + size.y / 2, -1), Quaternion.identity);
