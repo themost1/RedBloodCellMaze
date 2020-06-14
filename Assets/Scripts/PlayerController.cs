@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     	float xDir = Input.GetAxis("Horizontal");
     	float yDir = Input.GetAxis("Vertical");
     	transform.position += speed * Time.deltaTime * new Vector3(xDir, yDir, 0f);
-        Debug.Log("transforms: xDir " + yDir + " " + transform.position);
+        // Debug.Log("transforms: xDir " + yDir + " " + transform.position);
 
         bool flip = (facingRight && xDir < 0) || (!facingRight && xDir >= 0);
         facingRight = xDir >= 0;

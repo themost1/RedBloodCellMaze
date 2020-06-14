@@ -29,6 +29,11 @@ public class MazeGenerator : MonoBehaviour
 
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
 
+        for (int i = 0; i < pivotsX.Count; ++i)
+        {
+            clearPivot(pivotsX[i], pivotsY[i]);
+        }
+
         for (int i = 0; i < mazeSize; ++i)
         {
             for (int j = 0; j < mazeSize; ++j)
@@ -51,6 +56,32 @@ public class MazeGenerator : MonoBehaviour
             Instantiate(wallBlock, new Vector3(i * size.x, -1 * size.y, 0), Quaternion.identity);
             Instantiate(wallBlock, new Vector3(i * size.x, size.y * mazeSize, 0), Quaternion.identity);
         }
+    }
+
+    void clearPivot(int xloc, int yloc)
+    {
+        if (yloc < 1 || yloc > mazeSize - 2 || xloc < 1 || xloc > mazeSize - 2)
+        {
+            print("issue: " + xloc + " " + yloc);
+            return;
+        }
+        if (maze[yloc][xloc-1] == 0)
+        {
+            maze[yloc][xloc + 1] = 0;
+        }
+        if (maze[yloc][xloc + 1] == 0)
+        {
+            maze[yloc][xloc - 1] = 0;
+        }
+        if (maze[yloc-1][xloc] == 0)
+        {
+            maze[yloc+1][xloc] = 0;
+        }
+        if (maze[yloc+1][xloc] == 0)
+        {
+            maze[yloc-1][xloc] = 0;
+        }
+        print("cleared a pivot");
     }
 
     // x1, y1 and x2, y2 are top-right and bottom-left corners of open space to divide
@@ -149,6 +180,6 @@ public class MazeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(Time.deltaTime);
+        
     }
 }
