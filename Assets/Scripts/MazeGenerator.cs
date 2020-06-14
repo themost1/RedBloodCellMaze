@@ -13,14 +13,17 @@ public class MazeGenerator : MonoBehaviour
     public GameObject enemy;
     public GameObject background;
     public GameObject trapdoor;
-    // public GameObject valve;
+    public GameObject valve;
     public GameObject heartPickup;
     public GameObject shieldPickup;
+    public GameObject mazeEnd;
 
     // Start is called before the first frame update
     void Start()
     {
-         for (int i = 0; i < mazeSize; ++i)
+        mazeSize = 20 + PlayerController.score * 5;
+
+        for (int i = 0; i < mazeSize; ++i)
         {
             List<int> empty = new List<int>();
             for (int j = 0; j < mazeSize; ++j)
@@ -33,7 +36,21 @@ public class MazeGenerator : MonoBehaviour
 
         Vector3 size = wallBlock.GetComponent<BoxCollider2D>().size;
 
+
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
+
+        bool endAdded = false;
+        while (!endAdded)
+        {
+            int row = Random.Range(0, mazeSize);
+            int col = Random.Range(0, mazeSize);
+            if (maze[row][col] == 0)
+            {
+                maze[row][col] = 2;
+                endAdded = true;
+                break;
+            }
+        }
 
         for (int i = 0; i < pivotsX.Count; ++i)
         {
@@ -44,7 +61,11 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int j = 0; j < mazeSize; ++j)
             {
-                if (maze[i][j] == 1)
+                if (maze[i][j] == 2)
+                {
+                    Instantiate(mazeEnd, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                }
+                else if (maze[i][j] == 1)
                 {
                     Instantiate(wallBlock, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
 
@@ -53,17 +74,17 @@ public class MazeGenerator : MonoBehaviour
                 {
                     Instantiate(trapdoor, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 } 
-                // else if ((i - 1 >= 0 && i + 1 < mazeSize - 1) || (j - 1 >= 0 && j + 1 < mazeSize - 1) 
-                // {
-                //     Instantiate(valve, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
-                // }
+                else if (IsHorizontalValve(i, j, mazeSize)) 
+                {
+                    Instantiate(valve, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
+                }
                 else
                 {
                     if (Random.Range(0, 5) == 1)
                         Instantiate(enemy, new Vector3(size.x * j + size.x / 2, size.y * i + size.y / 2, -1), Quaternion.identity);
-                    else if (Random.Range(0, 40) == 1)
+                    else if (Random.Range(0, 40 + PlayerController.score * 20) == 1)
                         Instantiate(heartPickup, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
-                    else if (Random.Range(0, 80) == 1)
+                    else if (Random.Range(0, 80 + PlayerController.score * 20) == 1)
                         Instantiate(shieldPickup, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 }
 
@@ -201,4 +222,37 @@ public class MazeGenerator : MonoBehaviour
     {
         
     }
+
+    bool IsHorizontalValve(int i, int j, int mazeSize) {
+        if (i == 0 || i == mazeSize - 1 || j == 0 || j == mazeSize - 1)
+        {
+            return false;
+        }
+
+        bool rand = Random.Range(0, 5) == 1;
+        return rand && (maze[i-1][j] == 1 && maze[i+1][j] == 1 && maze[i][j-1] == 0 && maze[i][j+1] == 0);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

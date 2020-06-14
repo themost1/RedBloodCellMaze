@@ -18,11 +18,7 @@ public class ShieldScript : MonoBehaviour
     void Update()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        int shields = 0;
-        for (int i = 0; i < players.Length; ++i)
-        {
-            shields = players[i].GetComponent<PlayerController>().shieldsLeft;
-        }
+        int shields = PlayerController.shieldsLeft;
         if (shields > whichShield)
         {
             GetComponent<SpriteRenderer>().enabled = true;
