@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private int StatusAlive;
     private bool facingRight;
 
-    public float invFrames = 0.3f;
+    public float invFrames = 1.2f;
     public float hpTime = 0;
 
     // Start is called before the first frame update
@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
             points += 1;
             Debug.Log("points +1");
         }
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +78,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             takeDamage();
+        }
+        else if (collision.gameObject.CompareTag("HeartPickup"))
+        {
+            if (hp < 3) hp++;
+            Destroy(collision.gameObject);
         }
     }
 
@@ -94,6 +100,7 @@ public class PlayerController : MonoBehaviour
 
     public void takeDamage()
     {
+        print(hpTime);
         if (hpTime > 0) return;
     
         hp--;

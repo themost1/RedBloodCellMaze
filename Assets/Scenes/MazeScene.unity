@@ -331,6 +331,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9185284266605019948, guid: ebfdef4826f08554a9723e3cc8211da2,
         type: 3}
+    - target: {fileID: 7806178449354195859, guid: e2a281a0b4ddf3f428623eb2643de57e,
+        type: 3}
+      propertyPath: heartPickup
+      value: 
+      objectReference: {fileID: 3594033491739143158, guid: 005591b4347fe6a4888f6e8dbdfdc8bf,
+        type: 3}
     - target: {fileID: 7806178449354195868, guid: e2a281a0b4ddf3f428623eb2643de57e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 1080094967194048260, guid: 952b2cc9972e9164d9b65a820b5383dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 1080094967194048260, guid: 952b2cc9972e9164d9b65a820b5383dd,
         type: 3}
@@ -699,6 +705,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2747987263118290256, guid: 26a30d96b6fb0408080ce4b9a46c3262,
+        type: 3}
+      propertyPath: invFrames
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2747987263118290260, guid: 26a30d96b6fb0408080ce4b9a46c3262,
         type: 3}
       propertyPath: m_LocalPosition.x
