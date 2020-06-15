@@ -125,6 +125,6 @@ MonoBehaviour:
   becomingDeadly: 0
   deadlyCounter: 0.5
   safeSprite: {fileID: 21300000, guid: 07a24c5bd478e404fbc2eedf0147c3e6, type: 3}
-  deadlySprite: {fileID: 21300000, guid: 9f7d106a44bea7d4ea9bd00fcb9a8bb2, type: 3}
+  deadlySprite: {fileID: 21300000, guid: cac074a0265eebc4c9c4583cf4696e48, type: 3}
   playerOn: 0
   player: {fileID: 0}
