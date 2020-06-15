@@ -7,7 +7,7 @@ public class MazeGenerator : MonoBehaviour
     public GameObject wallBlock;
     public GameObject rhythmObstacle;
     public List<List<int>> maze = new List<List<int>>();
-    public int mazeSize = 20;
+    public int mazeSize;
     public List<int> pivotsX = new List<int>();
     public List<int> pivotsY = new List<int>();
     public GameObject enemy;
@@ -39,22 +39,24 @@ public class MazeGenerator : MonoBehaviour
 
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
 
+   
+
+        for (int i = 0; i < pivotsX.Count; ++i)
+        {
+            clearPivot(pivotsX[i], pivotsY[i]);
+        }
+
         bool endAdded = false;
         while (!endAdded)
         {
             int row = Random.Range(0, mazeSize);
             int col = Random.Range(0, mazeSize);
-            if (maze[row][col] == 0)
+            if ((maze[row][col] == 0) && ((row >= (mazeSize / 2)) || (col >= (mazeSize / 2))))
             {
                 maze[row][col] = 2;
                 endAdded = true;
                 break;
             }
-        }
-
-        for (int i = 0; i < pivotsX.Count; ++i)
-        {
-            clearPivot(pivotsX[i], pivotsY[i]);
         }
 
         for (int i = 0; i < mazeSize; ++i)
@@ -81,10 +83,13 @@ public class MazeGenerator : MonoBehaviour
                 else
                 {
                     if (Random.Range(0, 5) == 1)
-                        Instantiate(enemy, new Vector3(size.x * j + size.x / 2, size.y * i + size.y / 2, -1), Quaternion.identity);
-                    else if (Random.Range(0, 40 + PlayerController.score * 20) == 1)
+                    {
+                        if (i > 4 || j > 4)
+                            Instantiate(enemy, new Vector3(size.x * j + size.x / 2, size.y * i + size.y / 2, -1), Quaternion.identity);
+                    }
+                    else if (Random.Range(0, 20 + PlayerController.score * 10) == 1)
                         Instantiate(heartPickup, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
-                    else if (Random.Range(0, 80 + PlayerController.score * 20) == 1)
+                    else if (Random.Range(0, 40 + PlayerController.score * 20) == 1)
                         Instantiate(shieldPickup, new Vector3(size.x * j, size.y * i, 0), Quaternion.identity);
                 }
 

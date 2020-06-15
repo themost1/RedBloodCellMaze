@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI WinText;
 
     private int points;
-    private int StatusAlive;
+//    private int StatusAlive;
     private bool facingRight;
 
     public float invFrames = 1.2f;
@@ -21,11 +21,14 @@ public class PlayerController : MonoBehaviour
     public Sprite shieldedSprite;
     public Sprite regularSprite;
     public Sprite whiteSprite;
+    public Sprite damagedSprite;
+
     public float shieldTime = 0;
 
     public string color = "red";
     public static int shieldsLeft = 0;
     public static int score = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +56,11 @@ public class PlayerController : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = shieldedSprite;
             shieldTime -= Time.deltaTime;
+        }
+        else if (hpTime > 0 && hpTime % 0.2 < 0.1)
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = damagedSprite;
         }
         else
         {
@@ -92,7 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            StatusAlive = 0;
+//            StatusAlive = 0;
             Debug.Log("uh oh...");
         }
         else if (collision.gameObject.CompareTag("Prize"))
@@ -153,7 +161,12 @@ public class PlayerController : MonoBehaviour
         hp--;
         hpTime = invFrames;
         if (hp <= 0)
+        {
+            hp = 3;
+            shieldsLeft = 0;
+            score = 0;
             SceneManager.LoadScene("RestartScene");
+        }
     }
 
 }
