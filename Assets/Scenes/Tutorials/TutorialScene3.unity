@@ -214,7 +214,7 @@ RectTransform:
   - {fileID: 176530806}
   - {fileID: 1499139198}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -255,7 +255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 225}
+  m_AnchoredPosition: {x: -66, y: 275}
   m_SizeDelta: {x: 200, y: 222.30157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176530807
@@ -277,7 +277,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Oh yeah...remember to avoid these bad boys!
+  m_text: 'Get the golden heart to level up...
+
+    and watch out for these bad boys!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -343,13 +345,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -129.72131, y: 0, z: -103.51929, w: 0}
+  m_margin: {x: -129.72131, y: 0, z: -264.39294, w: 0}
   m_textInfo:
     textComponent: {fileID: 176530807}
-    characterCount: 43
+    characterCount: 69
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 8
+    spaceCount: 13
+    wordCount: 14
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -524,8 +526,77 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &907209841
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6736221454413650228, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_Name
+      value: MazeEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.096048
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.030178
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985315317404131995, guid: dbbddbf9abce27f46a859bf6b654dccd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbbddbf9abce27f46a859bf6b654dccd, type: 3}
 --- !u!1001 &916600349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -700,8 +771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: -225}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 180, y: -275}
+  m_SizeDelta: {x: 80, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499139199
 MonoBehaviour:
@@ -723,8 +794,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

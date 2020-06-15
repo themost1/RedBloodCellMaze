@@ -27,6 +27,11 @@ public class GotoScene : MonoBehaviour
         SceneManager.LoadScene("TutorialScene2");
     }
 
+    public void GoToTutorial3() 
+    {
+        SceneManager.LoadScene("TutorialScene3");
+    }
+
     public void GoToMazeScene()
     {
         PlayerController.hp = 3;
