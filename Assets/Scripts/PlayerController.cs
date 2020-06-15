@@ -153,7 +153,12 @@ public class PlayerController : MonoBehaviour
         hp--;
         hpTime = invFrames;
         if (hp <= 0)
+        {
+            hp = 3;
+            shieldsLeft = 0;
+            score = 0;
             SceneManager.LoadScene("RestartScene");
+        }
     }
 
 }
