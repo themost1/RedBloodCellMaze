@@ -21,11 +21,14 @@ public class PlayerController : MonoBehaviour
     public Sprite shieldedSprite;
     public Sprite regularSprite;
     public Sprite whiteSprite;
+    public Sprite damagedSprite;
+
     public float shieldTime = 0;
 
     public string color = "red";
     public static int shieldsLeft = 0;
     public static int score = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +56,11 @@ public class PlayerController : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = shieldedSprite;
             shieldTime -= Time.deltaTime;
+        }
+        else if (hpTime > 0 && hpTime % 0.2 < 0.1)
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = damagedSprite;
         }
         else
         {
