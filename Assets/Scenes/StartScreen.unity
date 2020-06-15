@@ -540,7 +540,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -631,8 +631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15, y: -78}
-  m_SizeDelta: {x: -640, y: -630}
+  m_AnchoredPosition: {x: 14.999023, y: -70.789}
+  m_SizeDelta: {x: -639.9981, y: -692.4986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &906757911
 MonoBehaviour:
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1258,8 +1258,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15, y: -125.3}
-  m_SizeDelta: {x: -640, y: -630}
+  m_AnchoredPosition: {x: 15, y: -147.69}
+  m_SizeDelta: {x: -640, y: -674.776}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559941685
 MonoBehaviour:
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Red Blood Cell Maze
+  m_text: Red Blood Redemption
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1581,10 +1581,10 @@ MonoBehaviour:
   m_margin: {x: -0.00002388954, y: 0.000009965896, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2144475248}
-    characterCount: 19
+    characterCount: 20
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 2
     pageCount: 1
