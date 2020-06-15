@@ -39,22 +39,24 @@ public class MazeGenerator : MonoBehaviour
 
         divideMaze(0, 0, mazeSize - 1, mazeSize - 1, -100, -100);
 
+   
+
+        for (int i = 0; i < pivotsX.Count; ++i)
+        {
+            clearPivot(pivotsX[i], pivotsY[i]);
+        }
+
         bool endAdded = false;
         while (!endAdded)
         {
             int row = Random.Range(0, mazeSize);
             int col = Random.Range(0, mazeSize);
-            if ((maze[row][col] == 0) && ((row >= (mazeSize/2)) || (col >= (mazeSize/2))))
+            if ((maze[row][col] == 0) && ((row >= (mazeSize / 2)) || (col >= (mazeSize / 2))))
             {
                 maze[row][col] = 2;
                 endAdded = true;
                 break;
             }
-        }
-
-        for (int i = 0; i < pivotsX.Count; ++i)
-        {
-            clearPivot(pivotsX[i], pivotsY[i]);
         }
 
         for (int i = 0; i < mazeSize; ++i)
