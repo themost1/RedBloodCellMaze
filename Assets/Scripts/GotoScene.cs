@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GotoMazeScene : MonoBehaviour
+public class GotoScene : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,17 @@ public class GotoMazeScene : MonoBehaviour
         
     }
 
-    public void goToMazeScene()
+    public void GoToTutorial1()
+    {
+        SceneManager.LoadScene("TutorialScene1");
+    }
+
+    public void GoToTutorial2() 
+    {
+        SceneManager.LoadScene("TutorialScene2");
+    }
+
+    public void GoToMazeScene()
     {
         PlayerController.hp = 3;
         PlayerController.shieldsLeft = 0;
