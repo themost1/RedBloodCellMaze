@@ -9,10 +9,9 @@ public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
     public static int hp = 3;
-    private TextMeshProUGUI WinText;
 
-    private int points;
-//    private int StatusAlive;
+    // private int points;
+    // private int StatusAlive;
     private bool facingRight;
 
     public float invFrames = 1.2f;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public float shieldTime = 0;
 
-    public string color = "red";
+    // public string color = "red";
     public static int shieldsLeft = 0;
     public static int score = 0;
 

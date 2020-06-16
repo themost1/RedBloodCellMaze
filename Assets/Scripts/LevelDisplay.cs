@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class ScoreText : MonoBehaviour
+public class LevelDisplay : MonoBehaviour
 {
-    public GameObject txt;
+    public TextMeshProUGUI display;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,6 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.GetComponent<UnityEngine.UI.Text>().text = "Score: " + PlayerController.score.ToString(); ;
+        display.text = "Level " + PlayerController.score;
     }
 }
