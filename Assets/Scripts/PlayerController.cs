@@ -96,21 +96,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-//            StatusAlive = 0;
-            Debug.Log("uh oh...");
-        }
-        else if (collision.gameObject.CompareTag("Prize"))
-        {
-            points += 1;
-            Debug.Log("points +1");
-        }
-        
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
