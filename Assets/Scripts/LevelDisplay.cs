@@ -17,6 +17,6 @@ public class LevelDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        display.text = "Level " + PlayerController.score;
+        display.text = "Level " + (PlayerController.score + 1);
     }
 }
