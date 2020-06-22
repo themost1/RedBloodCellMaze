@@ -9,10 +9,9 @@ public class PlayerController : MonoBehaviour
 {
 	public float speed = 20;
     public static int hp = 3;
-    private TextMeshProUGUI WinText;
 
-    private int points;
-//    private int StatusAlive;
+    // private int points;
+    // private int StatusAlive;
     private bool facingRight;
 
     public float invFrames = 1.2f;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public float shieldTime = 0;
 
-    public string color = "red";
+    // public string color = "red";
     public static int shieldsLeft = 0;
     public static int score = 0;
 
@@ -94,21 +93,6 @@ public class PlayerController : MonoBehaviour
                 shieldTime = 3;
             }
         }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-//            StatusAlive = 0;
-            Debug.Log("uh oh...");
-        }
-        else if (collision.gameObject.CompareTag("Prize"))
-        {
-            points += 1;
-            Debug.Log("points +1");
-        }
-        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
